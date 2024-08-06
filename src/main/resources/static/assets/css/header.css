@@ -142,7 +142,7 @@
     padding-bottom: 0px;
     height: 100%;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     color: #000;
     position: relative;
     background-color: #fff;
@@ -171,10 +171,13 @@ a {
 
 .header .caret {
     position: relative;
-    background: #fff url('https://ananas.vn/wp-content/themes/ananas/fe-assets/images/icon_down_black.png') no-repeat;
+    display: inline-block;
+    background: #fff url(https://ananas.vn/wp-content/themes/ananas/fe-assets/images/icon_down_black.png) no-repeat;
     width: 12px;
     height: 8px;
     border: none;
+    left: 15px;
+    top: -2px;
 }
 
 .nav-parents {
@@ -192,6 +195,7 @@ a {
     align-items: center;
     flex-wrap: wrap;
 }
+
 
 
 @media only screen and (max-width: 1500px) {
