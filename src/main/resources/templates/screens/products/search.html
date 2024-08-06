@@ -1,0 +1,47 @@
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  lang="en"
+  th:replace="~{./layouts/main-layout :: main-layout-fragment(
+        ~{::title},
+        ~{::#static-resources},
+        ~{./components/header :: header},
+        ~{::#main-content}
+    )}"
+>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <th:block id="static-resources">
+
+  </th:block>
+</head>
+<body>
+<div id="main-content">
+  <h1>Search Results for "<span th:text="${query}"></span>"</h1>
+
+  <table border="1">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+    </tr>
+    <tr th:each="product : ${products}" th:object="${product}">
+      <td th:text="${product.name}">Product Name</td>
+      <td th:text="${product.price}">Price</td>
+    </tr>
+  </table>
+
+  <div>
+    <ul>
+      <li th:if="${page > 1}">
+        <a th:href="@{/search-results(key=${query}, page=${page - 1})}">Previous</a>
+      </li>
+      <li th:if="${page < totalPages}">
+        <a th:href="@{/search-results(key=${query}, page=${page + 1})}">Next</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
